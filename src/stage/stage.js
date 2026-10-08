@@ -455,7 +455,10 @@ export function createStage({ canvas, labelsEl, geo, mobile = false, mode = 'hom
       if (l.op < 0.01) { if (l.el.style.opacity !== '0') l.el.style.opacity = '0'; continue; }
       v3.copy(l.v).applyMatrix4(world.matrixWorld).project(camera);
       if (v3.z > 1) { l.el.style.opacity = '0'; continue; }
-      const sx = Math.min((v3.x * 0.5 + 0.5) * state.w + 12, state.w - l.el.offsetWidth - 10), sy = (-v3.y * 0.5 + 0.5) * state.h - 6;
+      let sx = (v3.x * 0.5 + 0.5) * state.w + 12;
+      if (l === youLabel) sx = Math.min(sx, state.w - l.el.offsetWidth - 10);
+      else if (sx > state.w - l.el.offsetWidth - 6) { l.el.style.opacity = '0'; continue; }
+      const sy = (-v3.y * 0.5 + 0.5) * state.h - 6;
       l.el.style.transform = `translate3d(${sx.toFixed(1)}px, ${sy.toFixed(1)}px, 0)`;
       l.el.style.opacity = l.op.toFixed(3);
     }
