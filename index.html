@@ -1,0 +1,279 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>TequiLeah · Stop building alone</title>
+  <meta name="description" content="TequiLeah is a daytime studio in Hialeah, Miami where South Florida's builders work side by side, team up, and meet the investors who back them." />
+  <meta name="theme-color" content="#07090c" />
+  <meta property="og:title" content="TequiLeah · Stop building alone" />
+  <meta property="og:description" content="A daytime studio in Hialeah, Miami for serious builders. One room. A direct line to investors." />
+  <meta property="og:type" content="website" />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <script type="module" src="/src/home.js"></script>
+</head>
+<body class="is-loading">
+  <a class="skip" href="#main">Skip to content</a>
+
+  <div class="stage" aria-hidden="true">
+    <canvas class="stage__canvas"></canvas>
+    <div class="stage__labels"></div>
+    <div class="stage__fallback"></div>
+    <div class="stage__vignette"></div>
+  </div>
+
+  <div class="tag" aria-hidden="true"><span class="tag__dot"></span><span class="tag__town"></span><span class="tag__what"></span></div>
+
+  <header class="nav" data-tone="night">
+    <a class="nav__brand" href="/" aria-label="TequiLeah home">
+      <span class="wordmark">Tequ<span class="wordmark__i">ı<span class="wordmark__dot"></span></span>Leah</span>
+    </a>
+    <nav class="nav__links" aria-label="Primary">
+      <a href="#how">How it works</a>
+      <a href="#pipeline">Investors</a>
+      <a href="#here">Hialeah</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+    <div class="nav__cta">
+      <span class="nav__clock" aria-label="Local time in Miami"><span class="nav__clock-dot"></span><span data-clock>Miami</span></span>
+      <a class="btn btn--amber btn--sm" href="/apply/">Apply</a>
+      <button class="nav__menu" aria-expanded="false" aria-controls="menu"><span></span><span></span><span class="sr">Menu</span></button>
+    </div>
+  </header>
+
+  <div class="menu" id="menu" hidden>
+    <nav aria-label="Mobile">
+      <a href="#how">How it works</a>
+      <a href="#pipeline">Investors</a>
+      <a href="#here">Hialeah</a>
+      <a href="#faq">FAQ</a>
+      <a href="/apply/" class="menu__apply">Apply to build</a>
+      <a href="/investors/" class="menu__inv">I'm an investor</a>
+    </nav>
+  </div>
+
+  <main id="main">
+    <!-- 01 HERO · scattered -->
+    <section class="chapter chapter--hero" data-tone="night" data-t="0" data-len="1">
+      <div class="frame">
+        <div class="hero">
+          <p class="eyebrow reveal"><span class="pip pip--amber"></span>A daytime studio for builders · Hialeah, Miami</p>
+          <h1 class="hero__title">
+            <span class="line"><span>Florida is full</span></span>
+            <span class="line"><span>of people</span></span>
+            <span class="line"><span><em class="voice">building alone.</em></span></span>
+          </h1>
+          <p class="hero__sub reveal">TequiLeah puts them in one room. Then we open the door to the people who fund them.</p>
+          <div class="hero__ctas reveal">
+            <a class="btn btn--amber" href="/apply/"><span class="pip"></span>Apply to build</a>
+            <a class="btn btn--ghost" href="/investors/"><span class="pip pip--aqua"></span>I'm an investor</a>
+          </div>
+        </div>
+        <p class="hint reveal"><span class="hint__line"></span>Every light is someone building something. <span class="hint__desk">Move across the map.</span></p>
+      </div>
+    </section>
+
+    <!-- 02 THE TURN · gathering -->
+    <section class="chapter chapter--turn" data-tone="night" data-t="1" data-len="1" aria-label="They should meet">
+      <div class="frame">
+        <div class="beats">
+          <p class="beat" data-ping="Kendall">Somewhere tonight, someone in <b>Kendall</b> is shipping a product nobody has seen.</p>
+          <p class="beat" data-ping="Doral">Someone in <b>Doral</b> is designing the thing they need.</p>
+          <p class="beat" data-ping="Fort Lauderdale">Someone in <b>Fort Lauderdale</b> is three weeks from a demo.</p>
+          <p class="beat beat--quiet">They've never met.</p>
+          <h2 class="beat beat--big">They should.</h2>
+        </div>
+      </div>
+    </section>
+
+    <!-- 03 THE ROOM · together -->
+    <section class="chapter chapter--room" data-tone="day" data-t="2" data-len="1" aria-labelledby="room-title">
+      <div class="frame">
+        <div class="room">
+          <p class="eyebrow"><span class="pip pip--ink"></span>The room</p>
+          <h2 id="room-title" class="h2 split"><span class="line"><span>By day,</span></span> <span class="line"><span>it's a studio.</span></span></h2>
+          <p class="lede">Real desks. Fast internet. Strong coffee. And the one thing working alone never gives you: people across the table who are as serious as you are.</p>
+          <ol class="trio">
+            <li><span class="trio__n">A</span><div><h3>Build</h3><p>Your own work, next to people who get it.</p></div></li>
+            <li><span class="trio__n">B</span><div><h3>Trade</h3><p>Skills, feedback, tools, and introductions. Freely.</p></div></li>
+            <li><span class="trio__n">C</span><div><h3>Team up</h3><p>Projects that need more than one person find their people here.</p></div></li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <!-- 04 HOW IT WORKS · paper -->
+    <section class="sheet" id="how" data-tone="day" aria-labelledby="how-title">
+      <div class="wrap">
+        <header class="sheet__head">
+          <p class="eyebrow"><span class="pip pip--ink"></span>How it works</p>
+          <h2 id="how-title" class="h2 split"><span class="line"><span>Four steps from</span></span> <span class="line"><span><em class="voice">alone</em> to funded.</span></span></h2>
+        </header>
+        <ol class="steps">
+          <li class="step">
+            <span class="step__n">01</span>
+            <h3 class="step__t">Apply</h3>
+            <p class="step__d">Show us what you're building and what you've already shipped. A link to real work beats a perfect deck.</p>
+            <svg class="glyph glyph--apply" viewBox="0 0 160 96" aria-hidden="true"><circle class="g-dot g-amber" cx="80" cy="48" r="5"/><circle class="g-ring" cx="80" cy="48" r="5"/></svg>
+          </li>
+          <li class="step">
+            <span class="step__n">02</span>
+            <h3 class="step__t">Join the room</h3>
+            <p class="step__d">Work from the studio during the day, next to builders who make you better and expect the same from you.</p>
+            <svg class="glyph glyph--join" viewBox="0 0 160 96" aria-hidden="true"><rect class="g-room" x="52" y="22" width="56" height="52" rx="2"/><circle class="g-dot g-in g-in1" cx="66" cy="38" r="4"/><circle class="g-dot g-in g-in2" cx="94" cy="38" r="4"/><circle class="g-dot g-in g-in3" cx="66" cy="58" r="4"/><circle class="g-dot g-in g-in4" cx="94" cy="58" r="4"/></svg>
+          </li>
+          <li class="step">
+            <span class="step__n">03</span>
+            <h3 class="step__t">Show the work</h3>
+            <p class="step__d">Regular sessions where you show real progress to the room. Not slides. The thing itself.</p>
+            <svg class="glyph glyph--show" viewBox="0 0 160 96" aria-hidden="true"><rect class="g-room" x="52" y="22" width="56" height="52" rx="2"/><circle class="g-dot" cx="66" cy="62" r="4"/><circle class="g-dot" cx="80" cy="62" r="4"/><circle class="g-dot" cx="94" cy="62" r="4"/><circle class="g-dot g-amber" cx="80" cy="36" r="4.5"/><circle class="g-ring g-ring--loop" cx="80" cy="36" r="4.5"/></svg>
+          </li>
+          <li class="step">
+            <span class="step__n">04</span>
+            <h3 class="step__t">Meet the money</h3>
+            <p class="step__d">When your work is ready, we introduce you in person to investors whose focus matches what you're building.</p>
+            <svg class="glyph glyph--money" viewBox="0 0 160 96" aria-hidden="true"><rect class="g-room" x="18" y="30" width="36" height="36" rx="2"/><circle class="g-dot g-amber" cx="36" cy="48" r="4"/><path class="g-arc" d="M36 48 Q 88 -6 136 44"/><circle class="g-dot g-aqua" cx="136" cy="44" r="5"/><circle class="g-flow" r="2.6"><animateMotion dur="2.4s" repeatCount="indefinite" path="M36 48 Q 88 -6 136 44"/></circle></svg>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- 05 THE PIPELINE · connected -->
+    <section class="chapter chapter--pipe" id="pipeline" data-tone="night" data-t="3" data-len="1" aria-labelledby="pipe-title">
+      <div class="frame">
+        <div class="pipe">
+          <p class="eyebrow"><span class="pip pip--aqua"></span>The pipeline</p>
+          <h2 id="pipe-title" class="h2 split"><span class="line"><span>The network</span></span> <span class="line"><span>is the point.</span></span></h2>
+          <p class="lede">We've spent years building relationships with investors across Miami. We don't hand you a list. We make the introduction, in person, when your work is ready for it.</p>
+          <ul class="legend" aria-label="Map legend">
+            <li><span class="pip pip--amber"></span>The work, leaving the room</li>
+            <li><span class="pip pip--aqua"></span>The people who back it</li>
+          </ul>
+          <aside class="investor-card">
+            <p class="investor-card__k">For investors</p>
+            <p class="investor-card__t">See real products from builders you've watched work, before anyone else does.</p>
+            <a class="btn btn--aqua" href="/investors/"><span class="pip"></span>Join the investor circle</a>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- 06 WHO · paper -->
+    <section class="sheet sheet--who" data-tone="day" aria-labelledby="who-title">
+      <div class="wrap">
+        <header class="sheet__head">
+          <p class="eyebrow"><span class="pip pip--ink"></span>Who it's for</p>
+          <h2 id="who-title" class="h2 split"><span class="line"><span>Bring proof,</span></span> <span class="line"><span><em class="voice">not a pitch.</em></span></span></h2>
+        </header>
+        <ul class="roster">
+          <li><span class="roster__dot"></span><span>Engineers</span></li>
+          <li><span class="roster__dot"></span><span>Designers</span></li>
+          <li><span class="roster__dot"></span><span>AI builders</span></li>
+          <li><span class="roster__dot"></span><span>Hardware people</span></li>
+          <li><span class="roster__dot"></span><span>Filmmakers</span></li>
+          <li><span class="roster__dot"></span><span>Founders with one product <em class="voice">and no team yet</em></span></li>
+        </ul>
+        <p class="roster__foot">If you're already making something real, there's a seat for you. <a class="link" href="/apply/">Apply to build</a></p>
+      </div>
+    </section>
+
+    <!-- 07 WHY HERE · paper -->
+    <section class="sheet sheet--here" id="here" data-tone="day" aria-labelledby="here-title">
+      <div class="wrap here">
+        <div class="here__copy">
+          <p class="eyebrow"><span class="pip pip--ink"></span>Why Hialeah</p>
+          <h2 id="here-title" class="h2 split"><span class="line"><span>Miami doesn't need</span></span> <span class="line"><span>another villa.</span></span></h2>
+          <p class="lede">It needs a table, a good room, and the right person sitting across from you. Hialeah is a city built by people who make things. That's the energy we're building on.</p>
+          <dl class="coords">
+            <div><dt>Latitude</dt><dd>25.86° N</dd></div>
+            <div><dt>Longitude</dt><dd>80.28° W</dd></div>
+            <div><dt>To Brickell</dt><dd data-km="Brickell">11 km</dd></div>
+            <div><dt>Hours</dt><dd>Daytime</dd></div>
+          </dl>
+        </div>
+        <figure class="plan">
+          <svg class="plan__svg" viewBox="0 0 400 400" role="img" aria-label="Site plan of Hialeah with the studio marked"></svg>
+          <figcaption>Hialeah city limits and major roads. Census data, drawn to scale.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- 08 RULES · ink -->
+    <section class="sheet sheet--rules" data-tone="night" aria-labelledby="rules-title">
+      <div class="wrap">
+        <header class="sheet__head">
+          <p class="eyebrow"><span class="pip pip--amber"></span>House rules</p>
+          <h2 id="rules-title" class="sr">House rules</h2>
+        </header>
+        <ol class="rules">
+          <li><span class="rules__w">Ship.</span><span class="rules__d">Momentum beats potential.</span></li>
+          <li><span class="rules__w">Share.</span><span class="rules__d">What you know makes the room stronger.</span></li>
+          <li><span class="rules__w">Show up.</span><span class="rules__d">Ego stays at the door. The work doesn't.</span></li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- 09 FAQ · paper -->
+    <section class="sheet sheet--faq" id="faq" data-tone="day" aria-labelledby="faq-title">
+      <div class="wrap faq">
+        <header class="faq__head">
+          <p class="eyebrow"><span class="pip pip--ink"></span>Questions</p>
+          <h2 id="faq-title" class="h2">Straight answers.</h2>
+        </header>
+        <div class="faq__list">
+          <details><summary>Who is TequiLeah for?</summary><p>Builders and creatives in South Florida who are already making something real: engineers, designers, AI builders, hardware people, filmmakers, and solo founders. You don't need a company yet. You need work in progress.</p></details>
+          <details><summary>Where is it, and when is it open?</summary><p>The studio is in Hialeah, Miami, and it runs during the day. Members get the exact address and hours when they're accepted.</p></details>
+          <details><summary>How do investor introductions work?</summary><p>When your work is ready, we introduce you in person to investors whose focus matches what you're building. No mass email lists and no cold decks.</p></details>
+          <details><summary>Do I need funding, a team, or a pitch deck?</summary><p>No. Show us what you've shipped and what you're working on now. Proof matters more than polish.</p></details>
+          <details><summary>What does it cost?</summary><p>We walk every accepted builder through membership on a short intro call. No surprises.</p></details>
+          <details><summary>I'm an investor. How do I get involved?</summary><p>Join the investor circle. You'll see real work from builders in the room, and we'll make introductions when there's a match. <a class="link" href="/investors/">Join the investor circle</a></p></details>
+        </div>
+      </div>
+    </section>
+
+    <!-- 10 CLOSE · lit -->
+    <section class="chapter chapter--close" data-tone="night" data-t="4" data-len="1" aria-labelledby="close-title">
+      <div class="frame">
+        <div class="close">
+          <p class="eyebrow"><span class="pip pip--amber"></span>Same map. Different night.</p>
+          <h2 id="close-title" class="close__title split"><span class="line"><span>Stop building</span></span> <span class="line"><span><em class="voice">alone.</em></span></span></h2>
+          <p class="close__sub">Tell us what you're building. A real person reads every application.</p>
+          <div class="hero__ctas">
+            <a class="btn btn--amber" href="/apply/"><span class="pip"></span>Apply to build</a>
+            <a class="btn btn--ghost" href="/investors/"><span class="pip pip--aqua"></span>I'm an investor</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="foot" data-tone="night">
+    <div class="wrap">
+      <div class="foot__grid">
+        <div>
+          <p class="foot__k">Studio</p>
+          <p>Hialeah, Miami<br />Florida</p>
+        </div>
+        <div>
+          <p class="foot__k">Join</p>
+          <p><a href="/apply/">Apply to build</a><br /><a href="/investors/">Investor circle</a></p>
+        </div>
+        <div>
+          <p class="foot__k">Read</p>
+          <p><a href="#how">How it works</a><br /><a href="#faq">FAQ</a></p>
+        </div>
+        <div>
+          <p class="foot__k">Venture</p>
+          <p>An Elevate Innovation<br />Technologies venture</p>
+        </div>
+      </div>
+      <p class="foot__mark" aria-hidden="true">Tequ<span class="wordmark__i">ı<span class="wordmark__dot"></span></span>Leah</p>
+      <div class="foot__base">
+        <span>© 2026 TequiLeah</span>
+        <span>Map data: US Census Bureau, 2023</span>
+        <a href="#main" class="foot__top">Back to top</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

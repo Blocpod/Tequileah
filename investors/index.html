@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Investor circle · TequiLeah</title>
+  <meta name="description" content="Join the TequiLeah investor circle and see real work from South Florida builders before anyone else." />
+  <meta name="theme-color" content="#07090c" />
+  <meta name="robots" content="noindex" />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <script type="module" src="/src/apply.js"></script>
+</head>
+<body class="is-loading form-body" data-flow="investor">
+  <a class="skip" href="#main">Skip to the form</a>
+  <div class="stage" aria-hidden="true">
+    <canvas class="stage__canvas"></canvas>
+    <div class="stage__labels"></div>
+    <div class="stage__fallback"></div>
+    <div class="stage__vignette"></div>
+  </div>
+  <header class="nav" data-tone="night">
+    <a class="nav__brand" href="/" aria-label="TequiLeah home">
+      <span class="wordmark">Tequ<span class="wordmark__i">ı<span class="wordmark__dot"></span></span>Leah</span>
+    </a>
+    <div class="nav__cta">
+      <span class="nav__clock" aria-label="Local time in Miami"><span class="nav__clock-dot"></span><span data-clock>Miami</span></span>
+      <a class="nav__close" href="/">Close<span aria-hidden="true">×</span></a>
+    </div>
+  </header>
+  <main id="main" class="form-page form-page--investor" data-tone="night">
+    <div class="panel">
+      <p class="eyebrow"><span class="pip pip--aqua"></span>Investors · TequiLeah</p>
+      <h1 class="panel__title">Join the investor circle</h1>
+      <form class="flow" novalidate>
+        <div class="flow__bar" aria-hidden="true"><i></i></div>
+        <div class="flow__steps"></div>
+        <p class="flow__live sr" aria-live="polite"></p>
+        <div class="flow__nav">
+          <button type="button" class="btn btn--ghost btn--sm flow__back" data-back>Back</button>
+          <button type="submit" class="btn btn--aqua" data-next><span>Continue</span><kbd aria-hidden="true">Enter ↵</kbd></button>
+        </div>
+      </form>
+      <section class="done" hidden aria-live="polite">
+        <p class="done__k eyebrow"></p>
+        <h2 class="done__t" tabindex="-1"></h2>
+        <p class="done__d"></p>
+        <a class="btn btn--ghost" href="/">Back to TequiLeah</a>
+      </section>
+      <p class="panel__fine">We use your answers only to get back to you.</p>
+    </div>
+  </main>
+</body>
+</html>
