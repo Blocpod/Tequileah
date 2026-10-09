@@ -1,13 +1,13 @@
-import '@fontsource-variable/funnel-display';
-import '@fontsource-variable/funnel-sans';
-import '@fontsource-variable/newsreader/wght-italic.css';
-import '@fontsource-variable/geist-mono';
+import '@fontsource-variable/mona-sans/wdth.css';
+import '@fontsource-variable/martian-mono/wdth.css';
 import './styles/main.css';
 import './styles/form.css';
 import geo from './data/geo.json';
 import { createStage } from './stage/stage.js';
-import { posterSVG } from './stage/poster.js';
+import { posterCanvas } from './stage/poster.js';
 import { initChrome } from './chrome.js';
+import { initButtons } from './ui/buttons.js';
+import { initCursor } from './ui/cursor.js';
 import { FLOWS } from './forms.js';
 import { FORM_ENDPOINT } from './config.js';
 
@@ -16,11 +16,22 @@ const MOBILE = matchMedia('(max-width: 860px)').matches;
 const flow = FLOWS[document.body.dataset.flow];
 const places = new Map([...geo.towns, ...geo.hubs].map(([n, x, y]) => [n, [x, y]]));
 
-const stage = createStage({ canvas: document.querySelector('.stage__canvas'), labelsEl: document.querySelector('.stage__labels'), geo, mobile: MOBILE, mode: 'apply', still: RM });
-if (!stage) { document.documentElement.classList.add('no-webgl'); document.querySelector('.stage__fallback').innerHTML = posterSVG(geo); }
-stage?.setYouColor(flow.color === 'aqua' ? '#46e0c9' : '#ffb347');
-stage?.setT(0, true);
+let stage = null;
+createStage({ canvas: document.querySelector('.stage__canvas'), labelsEl: document.querySelector('.stage__labels'), geo, mobile: MOBILE, mode: 'apply', still: RM })
+  .catch(() => null)
+  .then((s) => {
+    stage = s;
+    if (!stage) { document.documentElement.classList.add('no-webgl'); posterCanvas(geo, document.querySelector('.stage__fallback')); return; }
+    document.documentElement.classList.add('stage-ready');
+    stage.setYouColor(flow.color === 'aqua' ? '#46e0c9' : '#ffb347');
+    stage.setT(0, true);
+    stage.startIntro(2.2);
+  });
 initChrome();
+const FINE = matchMedia('(pointer: fine)').matches;
+if (FINE && !RM) initCursor();
+initButtons({ fine: FINE, reduced: RM, onPulse: (x, y, c) => stage?.pulse(x, y, c) });
+const setLabel = (t) => { const r = next.querySelector('.lbtn__roll'); r.textContent = t; r.dataset.text = t; };
 
 // ---------- render steps ----------
 const form = document.querySelector('.flow');
@@ -80,7 +91,7 @@ function show(i, dir = 1) {
   if (!RM) { nowEl.classList.remove('in-l', 'in-r'); void nowEl.offsetWidth; nowEl.classList.add(dir > 0 ? 'in-r' : 'in-l'); }
   bar.style.transform = `scaleX(${(i + 1) / total})`;
   back.disabled = i === 0;
-  next.querySelector('span').textContent = i === total - 1 ? (flow.kind === 'investor' ? 'Join the circle' : 'Send application') : 'Continue';
+  setLabel(i === total - 1 ? (flow.kind === 'investor' ? 'Join the circle' : 'Send application') : 'Continue');
   live.textContent = `Step ${i + 1} of ${total}: ${flow.steps[i].q}`;
   const focusEl = nowEl.querySelector('input:not([type=radio]):not([type=checkbox]), textarea') || nowEl.querySelector('input');
   if (prev !== nowEl) setTimeout(() => focusEl?.focus({ preventScroll: true }), RM ? 0 : 120);
@@ -110,7 +121,7 @@ async function go() {
   // submit
   const data = Object.fromEntries(flow.steps.map((s) => [s.id, value(s)]));
   data.kind = flow.kind;
-  next.disabled = true; next.classList.add('is-busy'); next.querySelector('span').textContent = 'Sending';
+  next.disabled = true; next.classList.add('is-busy'); setLabel('Sending');
   try {
     if (FORM_ENDPOINT) {
       const r = await fetch(FORM_ENDPOINT, { method: 'POST', headers: { 'Content-Type': 'application/json', Accept: 'application/json' }, body: JSON.stringify(data) });
@@ -120,7 +131,7 @@ async function go() {
     }
     finish(data);
   } catch (err) {
-    next.disabled = false; next.classList.remove('is-busy'); next.querySelector('span').textContent = 'Try again';
+    next.disabled = false; next.classList.remove('is-busy'); setLabel('Try again');
     sets[cur].querySelector('.step-q__err').textContent = "That didn't go through. Your answers are still here. Try again in a moment.";
   }
 }

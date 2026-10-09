@@ -15,6 +15,16 @@
 <body class="is-loading">
   <a class="skip" href="#main">Skip to content</a>
 
+  <div class="boot" aria-hidden="true">
+    <div class="boot__mark"><span class="wordmark">Tequ<span class="wordmark__i">ı<span class="wordmark__dot"></span></span>Leah</span></div>
+    <div class="boot__row">
+      <span class="boot__k">Locating builders</span>
+      <span class="boot__n"><span data-boot-n>000</span></span>
+      <span class="boot__k boot__k--r">25.86° N · 80.28° W</span>
+    </div>
+    <div class="boot__bar"><i></i></div>
+  </div>
+
   <div class="stage" aria-hidden="true">
     <canvas class="stage__canvas"></canvas>
     <div class="stage__labels"></div>
@@ -23,9 +33,21 @@
   </div>
 
   <div class="tag" aria-hidden="true"><span class="tag__dot"></span><span class="tag__town"></span><span class="tag__what"></span></div>
+  <div class="cursor" aria-hidden="true"><span class="cursor__ring"><span class="cursor__label"></span></span><span class="cursor__dot"></span></div>
+
+  <nav class="rail" aria-label="Chapters">
+    <ol>
+      <li><a href="#ch-alone" data-rail="0"><span class="rail__n">01</span><span class="rail__t">Alone</span></a></li>
+      <li><a href="#ch-gather" data-rail="1"><span class="rail__n">02</span><span class="rail__t">Gather</span></a></li>
+      <li><a href="#ch-room" data-rail="2"><span class="rail__n">03</span><span class="rail__t">The room</span></a></li>
+      <li><a href="#pipeline" data-rail="3"><span class="rail__n">04</span><span class="rail__t">The network</span></a></li>
+      <li><a href="#ch-close" data-rail="4"><span class="rail__n">05</span><span class="rail__t">Together</span></a></li>
+    </ol>
+    <span class="rail__track" aria-hidden="true"><i></i></span>
+  </nav>
 
   <header class="nav" data-tone="night">
-    <a class="nav__brand" href="/" aria-label="TequiLeah home">
+    <a class="nav__brand" href="/" aria-label="TequiLeah home" data-cursor="Home">
       <span class="wordmark">Tequ<span class="wordmark__i">ı<span class="wordmark__dot"></span></span>Leah</span>
     </a>
     <nav class="nav__links" aria-label="Primary">
@@ -35,8 +57,9 @@
       <a href="#faq">FAQ</a>
     </nav>
     <div class="nav__cta">
-      <span class="nav__clock" aria-label="Local time in Miami"><span class="nav__clock-dot"></span><span data-clock>Miami</span></span>
-      <a class="btn btn--amber btn--sm" href="/apply/">Apply</a>
+      <button class="sound" type="button" aria-pressed="false" aria-label="Sound" data-cursor="Sound"><span class="sound__bars" aria-hidden="true"><i></i><i></i><i></i><i></i></span><span class="sound__t">Sound</span></button>
+      <span class="nav__clock" aria-label="Local time in Miami"><span data-clock>Miami</span></span>
+      <a class="lbtn lbtn--amber lbtn--sm" href="/apply/" data-magnetic data-pulse="amber"><span class="lbtn__label"><span class="lbtn__roll" data-text="Apply">Apply</span></span></a>
       <button class="nav__menu" aria-expanded="false" aria-controls="menu"><span></span><span></span><span class="sr">Menu</span></button>
     </div>
   </header>
@@ -54,27 +77,27 @@
 
   <main id="main">
     <!-- 01 HERO · scattered -->
-    <section class="chapter chapter--hero" data-tone="night" data-t="0" data-len="1">
+    <section class="chapter chapter--hero" id="ch-alone" data-tone="night" data-t="0">
       <div class="frame">
         <div class="hero">
-          <p class="eyebrow reveal"><span class="pip pip--amber"></span>A daytime studio for builders · Hialeah, Miami</p>
-          <h1 class="hero__title">
-            <span class="line"><span>Florida is full</span></span>
-            <span class="line"><span>of people</span></span>
-            <span class="line"><span><em class="voice">building alone.</em></span></span>
+          <p class="eyebrow reveal"><span class="pip pip--amber"></span>A daytime studio for builders<span class="eyebrow__sep"></span>Hialeah, Miami</p>
+          <h1 class="hero__title kin" data-kin="hero">
+            <span class="kin__line">Florida is full</span>
+            <span class="kin__line">of people</span>
+            <span class="kin__line">building <span class="alone">alone.</span></span>
           </h1>
           <p class="hero__sub reveal">TequiLeah puts them in one room. Then we open the door to the people who fund them.</p>
           <div class="hero__ctas reveal">
-            <a class="btn btn--amber" href="/apply/"><span class="pip"></span>Apply to build</a>
-            <a class="btn btn--ghost" href="/investors/"><span class="pip pip--aqua"></span>I'm an investor</a>
+            <a class="lbtn lbtn--amber" href="/apply/" data-magnetic data-pulse="amber" data-cursor="Apply"><span class="lbtn__label"><span class="lbtn__roll" data-text="Apply to build">Apply to build</span></span><span class="lbtn__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12h13M13 6l6 6-6 6"/></svg><svg viewBox="0 0 24 24"><path d="M5 12h13M13 6l6 6-6 6"/></svg></span></a>
+            <a class="lbtn lbtn--glass lbtn--aqua" href="/investors/" data-magnetic data-pulse="aqua" data-cursor="Invest"><span class="lbtn__label"><span class="lbtn__roll" data-text="I'm an investor">I'm an investor</span></span><span class="lbtn__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12h13M13 6l6 6-6 6"/></svg><svg viewBox="0 0 24 24"><path d="M5 12h13M13 6l6 6-6 6"/></svg></span></a>
           </div>
         </div>
-        <p class="hint reveal"><span class="hint__line"></span>Every light is someone building something. <span class="hint__desk">Move across the map.</span></p>
+        <div class="hint reveal"><span class="hint__line"></span><span>Every light is someone building something.</span><span class="hint__desk">Move across the map.</span></div>
       </div>
     </section>
 
     <!-- 02 THE TURN · gathering -->
-    <section class="chapter chapter--turn" data-tone="night" data-t="1" data-len="1" aria-label="They should meet">
+    <section class="chapter chapter--turn" id="ch-gather" data-tone="night" data-t="1" aria-label="They should meet">
       <div class="frame">
         <div class="beats">
           <p class="beat" data-ping="Kendall">Somewhere tonight, someone in <b>Kendall</b> is shipping a product nobody has seen.</p>
@@ -87,11 +110,11 @@
     </section>
 
     <!-- 03 THE ROOM · together -->
-    <section class="chapter chapter--room" data-tone="day" data-t="2" data-len="1" aria-labelledby="room-title">
+    <section class="chapter chapter--room" id="ch-room" data-tone="day" data-t="2" aria-labelledby="room-title">
       <div class="frame">
         <div class="room">
-          <p class="eyebrow"><span class="pip pip--ink"></span>The room</p>
-          <h2 id="room-title" class="h2 split"><span class="line"><span>By day,</span></span> <span class="line"><span>it's a studio.</span></span></h2>
+          <p class="eyebrow"><span class="pip pip--ink"></span>03 · The room</p>
+          <h2 id="room-title" class="h2 kin"><span class="kin__line">By day,</span> <span class="kin__line">it's a studio.</span></h2>
           <p class="lede">Real desks. Fast internet. Strong coffee. And the one thing working alone never gives you: people across the table who are as serious as you are.</p>
           <ol class="trio">
             <li><span class="trio__n">A</span><div><h3>Build</h3><p>Your own work, next to people who get it.</p></div></li>
@@ -107,7 +130,7 @@
       <div class="wrap">
         <header class="sheet__head">
           <p class="eyebrow"><span class="pip pip--ink"></span>How it works</p>
-          <h2 id="how-title" class="h2 split"><span class="line"><span>Four steps from</span></span> <span class="line"><span><em class="voice">alone</em> to funded.</span></span></h2>
+          <h2 id="how-title" class="h2 kin"><span class="kin__line">Four steps from</span> <span class="kin__line"><span class="alone alone--ink">alone</span> to funded.</span></h2>
         </header>
         <ol class="steps">
           <li class="step">
@@ -139,11 +162,11 @@
     </section>
 
     <!-- 05 THE PIPELINE · connected -->
-    <section class="chapter chapter--pipe" id="pipeline" data-tone="night" data-t="3" data-len="1" aria-labelledby="pipe-title">
+    <section class="chapter chapter--pipe" id="pipeline" data-tone="night" data-t="3" aria-labelledby="pipe-title">
       <div class="frame">
         <div class="pipe">
-          <p class="eyebrow"><span class="pip pip--aqua"></span>The pipeline</p>
-          <h2 id="pipe-title" class="h2 split"><span class="line"><span>The network</span></span> <span class="line"><span>is the point.</span></span></h2>
+          <p class="eyebrow"><span class="pip pip--aqua"></span>04 · The pipeline</p>
+          <h2 id="pipe-title" class="h2 kin"><span class="kin__line">The network</span> <span class="kin__line">is the point.</span></h2>
           <p class="lede">We've spent years building relationships with investors across Miami. We don't hand you a list. We make the introduction, in person, when your work is ready for it.</p>
           <ul class="legend" aria-label="Map legend">
             <li><span class="pip pip--amber"></span>The work, leaving the room</li>
@@ -152,28 +175,28 @@
           <aside class="investor-card">
             <p class="investor-card__k">For investors</p>
             <p class="investor-card__t">See real products from builders you've watched work, before anyone else does.</p>
-            <a class="btn btn--aqua" href="/investors/"><span class="pip"></span>Join the investor circle</a>
+            <a class="lbtn lbtn--glass lbtn--aqua" href="/investors/" data-magnetic data-pulse="aqua" data-cursor="Invest"><span class="lbtn__label"><span class="lbtn__roll" data-text="Join the investor circle">Join the investor circle</span></span><span class="lbtn__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12h13M13 6l6 6-6 6"/></svg><svg viewBox="0 0 24 24"><path d="M5 12h13M13 6l6 6-6 6"/></svg></span></a>
           </aside>
         </div>
       </div>
     </section>
 
-    <!-- 06 WHO · paper -->
-    <section class="sheet sheet--who" data-tone="day" aria-labelledby="who-title">
+    <!-- 06 WHO · paper, rises like a sunrise over the night map -->
+    <section class="sheet sheet--who sheet--rise" data-tone="day" aria-labelledby="who-title">
       <div class="wrap">
         <header class="sheet__head">
           <p class="eyebrow"><span class="pip pip--ink"></span>Who it's for</p>
-          <h2 id="who-title" class="h2 split"><span class="line"><span>Bring proof,</span></span> <span class="line"><span><em class="voice">not a pitch.</em></span></span></h2>
+          <h2 id="who-title" class="h2 kin"><span class="kin__line">Bring proof,</span> <span class="kin__line">not a pitch.</span></h2>
         </header>
         <ul class="roster">
-          <li><span class="roster__dot"></span><span>Engineers</span></li>
-          <li><span class="roster__dot"></span><span>Designers</span></li>
-          <li><span class="roster__dot"></span><span>AI builders</span></li>
-          <li><span class="roster__dot"></span><span>Hardware people</span></li>
-          <li><span class="roster__dot"></span><span>Filmmakers</span></li>
-          <li><span class="roster__dot"></span><span>Founders with one product <em class="voice">and no team yet</em></span></li>
+          <li><span class="roster__dot"></span><span class="roster__w">Engineers</span></li>
+          <li><span class="roster__dot"></span><span class="roster__w">Designers</span></li>
+          <li><span class="roster__dot"></span><span class="roster__w">AI builders</span></li>
+          <li><span class="roster__dot"></span><span class="roster__w">Hardware people</span></li>
+          <li><span class="roster__dot"></span><span class="roster__w">Filmmakers</span></li>
+          <li><span class="roster__dot"></span><span class="roster__w">Solo founders</span></li>
         </ul>
-        <p class="roster__foot">If you're already making something real, there's a seat for you. <a class="link" href="/apply/">Apply to build</a></p>
+        <p class="roster__foot">One product and no team yet? If you're already making something real, there's a seat for you. <a class="link" href="/apply/">Apply to build</a></p>
       </div>
     </section>
 
@@ -182,12 +205,12 @@
       <div class="wrap here">
         <div class="here__copy">
           <p class="eyebrow"><span class="pip pip--ink"></span>Why Hialeah</p>
-          <h2 id="here-title" class="h2 split"><span class="line"><span>Miami doesn't need</span></span> <span class="line"><span>another villa.</span></span></h2>
+          <h2 id="here-title" class="h2 kin"><span class="kin__line">Miami doesn't need</span> <span class="kin__line">another villa.</span></h2>
           <p class="lede">It needs a table, a good room, and the right person sitting across from you. Hialeah is a city built by people who make things. That's the energy we're building on.</p>
           <dl class="coords">
             <div><dt>Latitude</dt><dd>25.86° N</dd></div>
             <div><dt>Longitude</dt><dd>80.28° W</dd></div>
-            <div><dt>To Brickell</dt><dd data-km="Brickell">11 km</dd></div>
+            <div><dt>To Brickell</dt><dd data-km="Brickell">13 km</dd></div>
             <div><dt>Hours</dt><dd>Daytime</dd></div>
           </dl>
         </div>
@@ -218,29 +241,29 @@
       <div class="wrap faq">
         <header class="faq__head">
           <p class="eyebrow"><span class="pip pip--ink"></span>Questions</p>
-          <h2 id="faq-title" class="h2">Straight answers.</h2>
+          <h2 id="faq-title" class="h2 kin"><span class="kin__line">Straight</span> <span class="kin__line">answers.</span></h2>
         </header>
         <div class="faq__list">
-          <details><summary>Who is TequiLeah for?</summary><p>Builders and creatives in South Florida who are already making something real: engineers, designers, AI builders, hardware people, filmmakers, and solo founders. You don't need a company yet. You need work in progress.</p></details>
-          <details><summary>Where is it, and when is it open?</summary><p>The studio is in Hialeah, Miami, and it runs during the day. Members get the exact address and hours when they're accepted.</p></details>
-          <details><summary>How do investor introductions work?</summary><p>When your work is ready, we introduce you in person to investors whose focus matches what you're building. No mass email lists and no cold decks.</p></details>
-          <details><summary>Do I need funding, a team, or a pitch deck?</summary><p>No. Show us what you've shipped and what you're working on now. Proof matters more than polish.</p></details>
-          <details><summary>What does it cost?</summary><p>We walk every accepted builder through membership on a short intro call. No surprises.</p></details>
-          <details><summary>I'm an investor. How do I get involved?</summary><p>Join the investor circle. You'll see real work from builders in the room, and we'll make introductions when there's a match. <a class="link" href="/investors/">Join the investor circle</a></p></details>
+          <details><summary>Who is TequiLeah for?</summary><div class="faq__a"><p>Builders and creatives in South Florida who are already making something real: engineers, designers, AI builders, hardware people, filmmakers, and solo founders. You don't need a company yet. You need work in progress.</p></div></details>
+          <details><summary>Where is it, and when is it open?</summary><div class="faq__a"><p>The studio is in Hialeah, Miami, and it runs during the day. Members get the exact address and hours when they're accepted.</p></div></details>
+          <details><summary>How do investor introductions work?</summary><div class="faq__a"><p>When your work is ready, we introduce you in person to investors whose focus matches what you're building. No mass email lists and no cold decks.</p></div></details>
+          <details><summary>Do I need funding, a team, or a pitch deck?</summary><div class="faq__a"><p>No. Show us what you've shipped and what you're working on now. Proof matters more than polish.</p></div></details>
+          <details><summary>What does it cost?</summary><div class="faq__a"><p>We walk every accepted builder through membership on a short intro call. No surprises.</p></div></details>
+          <details><summary>I'm an investor. How do I get involved?</summary><div class="faq__a"><p>Join the investor circle. You'll see real work from builders in the room, and we'll make introductions when there's a match. <a class="link" href="/investors/">Join the investor circle</a></p></div></details>
         </div>
       </div>
     </section>
 
     <!-- 10 CLOSE · lit -->
-    <section class="chapter chapter--close" data-tone="night" data-t="4" data-len="1" aria-labelledby="close-title">
+    <section class="chapter chapter--close" id="ch-close" data-tone="night" data-t="4" aria-labelledby="close-title">
       <div class="frame">
         <div class="close">
           <p class="eyebrow"><span class="pip pip--amber"></span>Same map. Different night.</p>
-          <h2 id="close-title" class="close__title split"><span class="line"><span>Stop building</span></span> <span class="line"><span><em class="voice">alone.</em></span></span></h2>
+          <h2 id="close-title" class="close__title" aria-label="Stop building alone."><span class="close__l1" aria-hidden="true">Stop building</span><span class="close__l2" aria-hidden="true"><span class="gather">alone.</span></span></h2>
           <p class="close__sub">Tell us what you're building. A real person reads every application.</p>
           <div class="hero__ctas">
-            <a class="btn btn--amber" href="/apply/"><span class="pip"></span>Apply to build</a>
-            <a class="btn btn--ghost" href="/investors/"><span class="pip pip--aqua"></span>I'm an investor</a>
+            <a class="lbtn lbtn--amber" href="/apply/" data-magnetic data-pulse="amber" data-cursor="Apply"><span class="lbtn__label"><span class="lbtn__roll" data-text="Apply to build">Apply to build</span></span><span class="lbtn__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12h13M13 6l6 6-6 6"/></svg><svg viewBox="0 0 24 24"><path d="M5 12h13M13 6l6 6-6 6"/></svg></span></a>
+            <a class="lbtn lbtn--glass lbtn--aqua" href="/investors/" data-magnetic data-pulse="aqua" data-cursor="Invest"><span class="lbtn__label"><span class="lbtn__roll" data-text="I'm an investor">I'm an investor</span></span><span class="lbtn__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12h13M13 6l6 6-6 6"/></svg><svg viewBox="0 0 24 24"><path d="M5 12h13M13 6l6 6-6 6"/></svg></span></a>
           </div>
         </div>
       </div>
@@ -250,24 +273,12 @@
   <footer class="foot" data-tone="night">
     <div class="wrap">
       <div class="foot__grid">
-        <div>
-          <p class="foot__k">Studio</p>
-          <p>Hialeah, Miami<br />Florida</p>
-        </div>
-        <div>
-          <p class="foot__k">Join</p>
-          <p><a href="/apply/">Apply to build</a><br /><a href="/investors/">Investor circle</a></p>
-        </div>
-        <div>
-          <p class="foot__k">Read</p>
-          <p><a href="#how">How it works</a><br /><a href="#faq">FAQ</a></p>
-        </div>
-        <div>
-          <p class="foot__k">Venture</p>
-          <p>An Elevate Innovation<br />Technologies venture</p>
-        </div>
+        <div><p class="foot__k">Studio</p><p>Hialeah, Miami<br />Florida</p></div>
+        <div><p class="foot__k">Join</p><p><a href="/apply/">Apply to build</a><br /><a href="/investors/">Investor circle</a></p></div>
+        <div><p class="foot__k">Read</p><p><a href="#how">How it works</a><br /><a href="#faq">FAQ</a></p></div>
+        <div><p class="foot__k">Venture</p><p>An Elevate Innovation<br />Technologies venture</p></div>
       </div>
-      <p class="foot__mark" aria-hidden="true">Tequ<span class="wordmark__i">ı<span class="wordmark__dot"></span></span>Leah</p>
+      <p class="foot__mark" aria-hidden="true" data-proximity>TequiLeah</p>
       <div class="foot__base">
         <span>© 2026 TequiLeah</span>
         <span>Map data: US Census Bureau, 2023</span>
@@ -275,5 +286,13 @@
       </div>
     </div>
   </footer>
+
+  <svg class="sr" aria-hidden="true" focusable="false">
+    <filter id="liquid" x="-10%" y="-10%" width="120%" height="120%" color-interpolation-filters="sRGB">
+      <feTurbulence type="fractalNoise" baseFrequency="0.012 0.02" numOctaves="2" seed="7" result="n" />
+      <feGaussianBlur in="n" stdDeviation="2" result="nb" />
+      <feDisplacementMap in="SourceGraphic" in2="nb" scale="26" xChannelSelector="R" yChannelSelector="G" />
+    </filter>
+  </svg>
 </body>
 </html>

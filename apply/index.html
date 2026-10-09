@@ -18,13 +18,14 @@
     <div class="stage__fallback"></div>
     <div class="stage__vignette"></div>
   </div>
+  <div class="cursor" aria-hidden="true"><span class="cursor__ring"><span class="cursor__label"></span></span><span class="cursor__dot"></span></div>
   <header class="nav" data-tone="night">
     <a class="nav__brand" href="/" aria-label="TequiLeah home">
       <span class="wordmark">Tequ<span class="wordmark__i">ı<span class="wordmark__dot"></span></span>Leah</span>
     </a>
     <div class="nav__cta">
       <span class="nav__clock" aria-label="Local time in Miami"><span class="nav__clock-dot"></span><span data-clock>Miami</span></span>
-      <a class="nav__close" href="/">Close<span aria-hidden="true">×</span></a>
+      <a class="nav__close" href="/" data-cursor="Close">Close<span aria-hidden="true">×</span></a>
     </div>
   </header>
   <main id="main" class="form-page form-page--builder" data-tone="night">
@@ -36,18 +37,19 @@
         <div class="flow__steps"></div>
         <p class="flow__live sr" aria-live="polite"></p>
         <div class="flow__nav">
-          <button type="button" class="btn btn--ghost btn--sm flow__back" data-back>Back</button>
-          <button type="submit" class="btn btn--amber" data-next><span>Continue</span><kbd aria-hidden="true">Enter ↵</kbd></button>
+          <button type="button" class="lbtn lbtn--glass lbtn--sm flow__back" data-back><span class="lbtn__label"><span class="lbtn__roll" data-text="Back">Back</span></span></button>
+          <button type="submit" class="lbtn lbtn--amber" data-next data-pulse="amber"><span class="lbtn__label"><span class="lbtn__roll" data-text="Continue">Continue</span></span><kbd aria-hidden="true">Enter ↵</kbd><span class="lbtn__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12h13M13 6l6 6-6 6"/></svg><svg viewBox="0 0 24 24"><path d="M5 12h13M13 6l6 6-6 6"/></svg></span></button>
         </div>
       </form>
       <section class="done" hidden aria-live="polite">
         <p class="done__k eyebrow"></p>
         <h2 class="done__t" tabindex="-1"></h2>
         <p class="done__d"></p>
-        <a class="btn btn--ghost" href="/">Back to TequiLeah</a>
+        <a class="lbtn lbtn--glass" href="/"><span class="lbtn__label"><span class="lbtn__roll" data-text="Back to TequiLeah">Back to TequiLeah</span></span><span class="lbtn__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12h13M13 6l6 6-6 6"/></svg><svg viewBox="0 0 24 24"><path d="M5 12h13M13 6l6 6-6 6"/></svg></span></a>
       </section>
       <p class="panel__fine">We use your answers only to get back to you.</p>
     </div>
   </main>
+  <svg class="sr" aria-hidden="true" focusable="false"><filter id="liquid" x="-10%" y="-10%" width="120%" height="120%" color-interpolation-filters="sRGB"><feTurbulence type="fractalNoise" baseFrequency="0.012 0.02" numOctaves="2" seed="7" result="n" /><feGaussianBlur in="n" stdDeviation="2" result="nb" /><feDisplacementMap in="SourceGraphic" in2="nb" scale="26" xChannelSelector="R" yChannelSelector="G" /></filter></svg>
 </body>
 </html>

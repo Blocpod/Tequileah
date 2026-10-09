@@ -16,8 +16,8 @@ const page = await ctx.newPage();
 const errors = [];
 page.on('pageerror', (e) => errors.push('pageerror: ' + e.message));
 page.on('console', (m) => { if (m.type() === 'error' || m.type() === 'warning') errors.push(m.type() + ': ' + m.text()); });
-await page.goto(base + '/', { waitUntil: 'networkidle' });
-await page.waitForTimeout(2600);
+await page.goto(base + '/' + (process.env.Q ? '?quality=' + process.env.Q : ''), { waitUntil: 'networkidle' });
+await page.waitForTimeout(+(process.env.WAIT || 4200));
 
 const stops = [
   ['01-hero', '.chapter--hero', 0],
@@ -46,7 +46,7 @@ for (const [name, sel, p] of stops) {
   }, [sel, p]);
   await page.evaluate((y) => window.scrollTo(0, y), y);
   await page.waitForTimeout(1900);
-  const t = await page.evaluate(() => (window.__stage ? +window.__stage.getT().toFixed(3) : null));
+  const t = await page.evaluate(() => (window.__stage ? JSON.stringify(window.__stage.debug()) : null));
   await page.screenshot({ path: `${out}${prefix}-${name}.png` });
   console.log(name, 'y', y, 'T', t);
 }

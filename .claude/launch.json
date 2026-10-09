@@ -11,6 +11,17 @@
         "/Users/countergrind/tequileah"
       ],
       "port": 5270
+    },
+    {
+      "name": "tequileah-preview",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": [
+        "run",
+        "preview",
+        "--prefix",
+        "/Users/countergrind/tequileah"
+      ],
+      "port": 5271
     }
   ]
 }

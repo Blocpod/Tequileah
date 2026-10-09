@@ -7,20 +7,38 @@ function pathOf(flat, X, Y, close) {
   return close ? d + 'Z' : d;
 }
 
-export function posterSVG(geo) {
-  // portrait-friendly frame over the urban corridor; slice to cover
-  const x0 = -62, x1 = 30, y0 = -52, y1 = 125, s = 6;
-  const X = (x) => (x - x0) * s, Y = (y) => (y1 - y) * s;
-  const W = (x1 - x0) * s, H = (y1 - y0) * s;
-  let out = `<svg xmlns="${NS}" viewBox="0 0 ${W} ${H}" preserveAspectRatio="xMidYMid slice"><rect width="100%" height="100%" fill="#07090c"/>`;
-  out += geo.land.map((a) => `<path d="${pathOf(a, X, Y, 1)}" fill="#0f141b"/>`).join('');
-  out += geo.water.map((a) => `<path d="${pathOf(a, X, Y, 1)}" fill="#07090c"/>`).join('');
-  out += `<g fill="none" stroke="#1d2632" stroke-width="1">${geo.arterials.map((a) => `<path d="${pathOf(a, X, Y)}"/>`).join('')}</g>`;
-  out += `<g fill="none" stroke="#36475a" stroke-width="1.6">${geo.highways.map((a) => `<path d="${pathOf(a, X, Y)}"/>`).join('')}</g>`;
-  out += `<g fill="none" stroke="#8193a8" stroke-width="1.4">${geo.coast.map((a) => `<path d="${pathOf(a, X, Y)}"/>`).join('')}</g>`;
-  out += `<g fill="#ffb347">${geo.builders.map((b, i) => `<circle cx="${X(b[0]).toFixed(1)}" cy="${Y(b[1]).toFixed(1)}" r="${(2 + (i % 5) * 0.4).toFixed(1)}" opacity="${(0.35 + (i % 7) * 0.09).toFixed(2)}"/>`).join('')}</g>`;
-  out += '</svg>';
-  return out;
+// The no-GPU poster: the same map drawn once onto a 2D canvas (cheap, no DOM weight).
+export function posterCanvas(geo, host) {
+  const cv = document.createElement('canvas');
+  host.replaceChildren(cv);
+  const draw = () => {
+    const dpr = Math.min(window.devicePixelRatio || 1, 2), W = innerWidth, H = innerHeight;
+    cv.width = Math.round(W * dpr); cv.height = Math.round(H * dpr); cv.style.width = W + 'px'; cv.style.height = H + 'px';
+    const g = cv.getContext('2d');
+    // frame the urban corridor; cover the viewport
+    const x0 = -62, x1 = 30, y0 = -52, y1 = 125;
+    const s = Math.max(W / (x1 - x0), H / (y1 - y0)) * dpr;
+    const ox = (cv.width - (x1 - x0) * s) / 2 + (W > 860 ? cv.width * 0.18 : 0), oy = (cv.height - (y1 - y0) * s) / 2;
+    const X = (x) => ox + (x - x0) * s, Y = (y) => oy + (y1 - y) * s;
+    const path = (a, close) => { g.beginPath(); for (let i = 0; i < a.length; i += 2) (i ? g.lineTo : g.moveTo).call(g, X(a[i]), Y(a[i + 1])); if (close) g.closePath(); };
+    g.fillStyle = '#07090c'; g.fillRect(0, 0, cv.width, cv.height);
+    g.fillStyle = '#0c1117'; geo.land.forEach((a) => { path(a, true); g.fill(); });
+    g.fillStyle = '#07090c'; geo.water.forEach((a) => { path(a, true); g.fill(); });
+    g.lineWidth = dpr * 0.7; g.strokeStyle = '#18202a'; geo.arterials.forEach((a) => { path(a); g.stroke(); });
+    g.lineWidth = dpr * 1.2; g.strokeStyle = '#2c394a'; geo.highways.forEach((a) => { path(a); g.stroke(); });
+    g.lineWidth = dpr; g.strokeStyle = '#7d8fa6'; geo.coast.forEach((a) => { path(a); g.stroke(); });
+    g.globalCompositeOperation = 'lighter';
+    geo.builders.forEach((b, i) => {
+      const x = X(b[0]), y = Y(b[1]), r = dpr * (6 + (i % 5));
+      const grd = g.createRadialGradient(x, y, 0, x, y, r);
+      grd.addColorStop(0, 'rgba(255,190,110,0.85)'); grd.addColorStop(0.25, 'rgba(255,140,40,0.35)'); grd.addColorStop(1, 'rgba(255,120,20,0)');
+      g.fillStyle = grd; g.fillRect(x - r, y - r, r * 2, r * 2);
+    });
+    g.globalCompositeOperation = 'source-over';
+  };
+  draw();
+  let t = 0;
+  window.addEventListener('resize', () => { clearTimeout(t); t = setTimeout(draw, 200); });
 }
 
 export function drawPlan(svg, geo) {

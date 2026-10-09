@@ -194,12 +194,20 @@ const hubs = [
 const investors = [];
 for (const h of hubs) { const c = proj([h[2], h[1]]); for (let i = 0; i < h[3] * 2; i++) investors.push([+(c[0] + gauss() * 1.6).toFixed(2), +(c[1] + gauss() * 1.6).toFixed(2), hubs.indexOf(h)]); }
 
+// connection network for the closing scene: each builder to its two nearest within 9 km, plus spokes to the room
+const net = [];
+for (let i = 0; i < builders.length; i++) {
+  const near = [];
+  for (let j = 0; j < builders.length; j++) { if (j === i) continue; const d = Math.hypot(builders[j][0] - builders[i][0], builders[j][1] - builders[i][1]); if (d < 9) near.push([d, j]); }
+  near.sort((a, b) => a[0] - b[0]);
+  for (const [, j] of near.slice(0, 2)) if (j > i) net.push(i, j);
+}
 const out = {
   meta: { origin: [LAT0, LON0], units: 'km', source: 'US Census Bureau cb_2023 500k counties and places; TIGER 2023 primary/secondary roads' },
   land, water: [...okeechobee, ...water], coast, borders, highways, arterials: arterialsKept, hialeah,
   towns: towns.map((t) => [t[0], ...proj([t[2], t[1]])]),
   hubs: hubs.map((h) => [h[0], ...proj([h[2], h[1]])]),
-  builders, investors,
+  builders, investors, net,
 };
 mkdirSync(dirname(OUT), { recursive: true });
 writeFileSync(OUT, JSON.stringify(out));
