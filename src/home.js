@@ -65,7 +65,6 @@ if (FINE && !RM) proximity(document.querySelector('.foot__mark'));
 // ---------- chapters drive T ----------
 const chapters = [...document.querySelectorAll('.chapter')];
 const hero = document.querySelector('.chapter--hero .hero');
-const hint = document.querySelector('.hint');
 const beats = [...document.querySelectorAll('.beat')];
 const roomCh = document.querySelector('.chapter--room');
 const pipeEls = document.querySelectorAll('.chapter--pipe .pipe > *');
@@ -78,7 +77,6 @@ function onChapter(ch, p) {
     hero.style.opacity = String(1 - k);
     hero.style.translate = `0 ${(-k * 70).toFixed(1)}px`;
     hero.style.filter = k > 0.01 ? `blur(${(k * 8).toFixed(1)}px)` : '';
-    hint.style.opacity = String(1 - sm(0.05, 0.3, p));
   }
   if (ch.classList.contains('chapter--turn')) {
     const span = 0.17;
@@ -231,7 +229,7 @@ function wireStage() {
       if (!inHero() || performance.now() - lastMove < 3500) { if (!inHero()) showTag(null); return; }
       for (let k = 0; k < 30; k++) {
         const x = innerWidth * (MOBILE ? 0.15 + Math.random() * 0.7 : 0.55 + Math.random() * 0.38);
-        const y = innerHeight * (MOBILE ? 0.12 + Math.random() * 0.4 : 0.18 + Math.random() * 0.62);
+        const y = innerHeight * (MOBILE ? 0.14 + Math.random() * 0.2 : 0.18 + Math.random() * 0.62);
         const hit = stage.nearestBuilder(x, y, 26);
         if (hit) { const s = stage.mapToScreen(hit.pos[0], hit.pos[1], 0.04); showTag(hit, s.x, s.y); return; }
       }
